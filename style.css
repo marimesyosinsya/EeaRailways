@@ -55,7 +55,28 @@ footer {
     width: 100%;
 }
 
-th,td {
-    border: 2px solid;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: left;
     display: block;
+}
+
+th {
+    background-color: #FFD700; /* 金色のヘッダー */
+    color: black;
+}
+
+td {
+    background-color: white;
+}
+
+tr:nth-child(even) td {
+    background-color: #f9f9f9;
 }
