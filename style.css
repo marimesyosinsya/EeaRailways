@@ -59,17 +59,22 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 th, td {
-    border: 2px double black;
-    padding: 10px;
-    text-align: left;
+    border: 2px solid black;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
 }
 
 th {
-    background-color: #30D5C8; /* ターコイズブルーのヘッダー */
+    background-color: #FFD700; /* 金色のヘッダー */
     color: black;
+    font-weight: bold;
 }
 
 td {
@@ -78,4 +83,10 @@ td {
 
 tr:nth-child(even) td {
     background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #f1c40f; /* ホバー時に明るい金色 */
+    color: black;
+    transition: 0.3s;
 }
