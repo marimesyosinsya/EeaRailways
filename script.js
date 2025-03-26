@@ -1,18 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
+    // すべてのセクション内のh2以外を非表示にする
+    document.querySelectorAll("section").forEach(section => {
+        Array.from(section.children).forEach(child => {
+            if (child.tagName !== "H2") {
+                child.style.display = "none";
             }
         });
-    }, {
-        threshold: 0.2
-    });
 
-    sections.forEach(section => {
-        section.classList.add("hidden");
-        observer.observe(section);
+        // 各セクションに「詳細表示」ボタンを追加
+        let button = document.createElement("button");
+        button.textContent = "詳細表示";
+        button.style.display = "block";
+        button.style.marginTop = "10px";
+        button.addEventListener("click", function () {
+            Array.from(section.children).forEach(child => {
+                if (child.tagName !== "H2") {
+                    child.style.display = "block";
+                }
+            });
+            button.style.display = "none"; // ボタンを消す
+        });
+        section.appendChild(button);
     });
 });
