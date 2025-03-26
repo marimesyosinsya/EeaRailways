@@ -62,6 +62,7 @@ table {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
 }
 
 th, td {
@@ -70,7 +71,6 @@ th, td {
     text-align: center;
     font-size: 16px;
     position: relative;
-    display: none;
 }
 
 th {
