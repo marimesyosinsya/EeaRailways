@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // h2以外の要素を非表示にする
-    document.querySelectorAll("main > section > *:not(h2)").forEach(element => {
-        element.style.display = "none";
-    });
+    // table-container に display: flex を追加して、テーブルを横並びにする
+    let tableContainer = document.querySelector(".table-container");
+    if (tableContainer) {
+        tableContainer.style.display = "flex";
+        tableContainer.style.gap = "20px"; // テーブル間のスペースを追加
+    }
+});
 
     // 表示/非表示の切り替えボタンを作成
     document.querySelectorAll("main > section").forEach(section => {
