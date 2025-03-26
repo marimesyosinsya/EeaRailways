@@ -54,3 +54,8 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+th,td {
+    border: 2px solid;
+    display: block;
+}
