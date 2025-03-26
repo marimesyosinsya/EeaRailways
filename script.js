@@ -6,22 +6,36 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 表示/非表示の切り替えボタンを作成
     document.querySelectorAll("main > section").forEach(section => {
-        let toggleButton = document.createElement("button");
-        toggleButton.textContent = "詳細を表示";
-        toggleButton.classList.add("toggle-button");
+        let buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
         
+        let showButton = document.createElement("button");
+        showButton.textContent = "詳細を表示";
+        showButton.classList.add("toggle-button");
+        
+        let hideButton = document.createElement("button");
+        hideButton.textContent = "詳細を隠す";
+        hideButton.classList.add("toggle-button");
+        
+        buttonContainer.appendChild(showButton);
+        buttonContainer.appendChild(hideButton);
+
         // 最初の h2 の次にボタンを挿入（h2が必ず存在する前提）
         let h2 = section.querySelector("h2");
         if (h2) {
-            h2.insertAdjacentElement("afterend", toggleButton);
+            h2.insertAdjacentElement("afterend", buttonContainer);
         }
 
-        toggleButton.addEventListener("click", function() {
-            let isHidden = section.querySelector("h3")?.style.display === "none";
+        showButton.addEventListener("click", function() {
             section.querySelectorAll("*:not(h2):not(button)").forEach(el => {
-                el.style.display = isHidden ? "block" : "none";
+                el.style.display = "block";
             });
-            toggleButton.textContent = isHidden ? "詳細を隠す" : "詳細を表示";
+        });
+
+        hideButton.addEventListener("click", function() {
+            section.querySelectorAll("*:not(h2):not(button)").forEach(el => {
+                el.style.display = "none";
+            });
         });
     });
 });
