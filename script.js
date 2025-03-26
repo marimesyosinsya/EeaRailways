@@ -9,7 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
         let toggleButton = document.createElement("button");
         toggleButton.textContent = "詳細を表示";
         toggleButton.classList.add("toggle-button");
-        section.insertBefore(toggleButton, section.children[1]);
+        
+        // 最初の h2 の次にボタンを挿入（h2が必ず存在する前提）
+        let h2 = section.querySelector("h2");
+        if (h2) {
+            h2.insertAdjacentElement("afterend", toggleButton);
+        }
 
         toggleButton.addEventListener("click", function() {
             let isHidden = section.querySelector("h3")?.style.display === "none";
