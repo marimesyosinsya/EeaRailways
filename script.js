@@ -1,27 +1,22 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // ボタン要素を取得
-    const showButton = document.getElementById("showButton");
-    const hideButton = document.getElementById("hideButton");
-    
-    // すべてのh2以外の要素を取得
-    const sections = document.querySelectorAll("section > *:not(h2)");
-    
-    // 初期状態ではh2以外を非表示にする
-    sections.forEach(element => {
+document.addEventListener("DOMContentLoaded", function() {
+    // h2以外の要素を非表示にする
+    document.querySelectorAll("main > section > *:not(h2)").forEach(element => {
         element.style.display = "none";
     });
 
-    // 「表示する」ボタンのクリックイベント
-    showButton.addEventListener("click", function () {
-        sections.forEach(element => {
-            element.style.display = "block"; // h2以外を表示
-        });
-    });
+    // 表示/非表示の切り替えボタンを作成
+    document.querySelectorAll("main > section").forEach(section => {
+        let toggleButton = document.createElement("button");
+        toggleButton.textContent = "詳細を表示";
+        toggleButton.classList.add("toggle-button");
+        section.insertBefore(toggleButton, section.children[1]);
 
-    // 「隠す」ボタンのクリックイベント
-    hideButton.addEventListener("click", function () {
-        sections.forEach(element => {
-            element.style.display = "none"; // h2以外を非表示
+        toggleButton.addEventListener("click", function() {
+            let isHidden = section.querySelector("h3")?.style.display === "none";
+            section.querySelectorAll("*:not(h2):not(button)").forEach(el => {
+                el.style.display = isHidden ? "block" : "none";
+            });
+            toggleButton.textContent = isHidden ? "詳細を隠す" : "詳細を表示";
         });
     });
 });
