@@ -1,1 +1,122 @@
+/* 基本的なスタイル設定 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
+header {
+    background-color: #30D5C8; /* ターコイズブルー */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #228B88;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-left: 5px solid #FFD700; /* 金色のアクセント */
+    border-radius: 5px;
+    max-width: 800px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #30D5C8;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 各セクションのボタンを横並びにする */
+.toggle-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+/* ボタンを配置するコンテナ */
+.button-container {
+    display: flex;
+    gap: 10px; /* ボタン間の間隔 */
+    margin-top: 10px; /* h2との間隔 */
+}
+
+/* table-containerでテーブルを横並びに */
+.table-container {
+    display: flex; /* 横並びにする */
+    gap: 20px; /* テーブル間のスペースを追加 */
+    flex-wrap: wrap; /* テーブルが画面に収まりきらない場合に折り返し */
+    justify-content: flex-start; /* テーブルを左寄せに配置 */
+}
+
+/* table要素のスタイル */
+table {
+    border-collapse: collapse; /* セルの間に隙間をなくす */
+    width: 100%; /* テーブルの幅を100%に設定、調整可能 */
+    max-width: 400px; /* 最大幅を設定 */
+    box-sizing: border-box; /* 幅を調整しやすくする */
+}
+
+/* テーブルの見出し行（th）のスタイル */
+th {
+    background-color: #f2f2f2; /* 見出し行に背景色 */
+    padding: 10px; /* パディングを設定 */
+    text-align: left; /* 左寄せ */
+    border: 1px solid #ddd; /* 枠線 */
+}
+
+/* テーブルのデータ行（td）のスタイル */
+td {
+    padding: 10px; /* パディングを設定 */
+    border: 1px solid #ddd; /* 枠線 */
+    text-align: left; /* 左寄せ */
+}
+
+/* テーブルに対するレスポンシブデザイン */
+@media (max-width: 768px) {
+    .table-container {
+        flex-direction: column; /* モバイル表示では縦並びに変更 */
+    }
+
+    table {
+        width: 100%; /* モバイルではテーブルを画面いっぱいに */
+    }
+}
