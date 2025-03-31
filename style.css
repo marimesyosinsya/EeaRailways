@@ -83,14 +83,16 @@ footer {
 
 /* セクション内のテーブルを横並びにする */
 .table-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3列固定 */
-    gap: 20px; /* テーブル間の間隔 */
+    display: flex; /* フレックスボックスで横並び */
+    flex-wrap: wrap; /* 画面サイズが小さい時に折り返し */
+    justify-content: space-between; /* 均等に配置 */
+    gap: 10px; /* テーブル間の間隔 */
 }
 
 /* 各テーブルのスタイル */
 .table-container table {
-    width: 100%; /* gridに合わせるため100% */
+    width: calc(33.33% - 10px); /* 3列均等に配置 */
+    min-width: 250px; /* 小さすぎるテーブルを防ぐ */
     border-collapse: collapse;
 }
 
