@@ -56,35 +56,54 @@ footer {
     width: 100%;
 }
 
-/* セクション内のテーブルを横並びにする */
+/* テーブルを横に3列並べる */
 .table-container {
-    display: flex; /* フレックスボックスで横並び */
-    flex-wrap: wrap; /* 画面サイズが小さい時に折り返し */
-    justify-content: space-between; /* 均等に配置 */
-    gap: 10px; /* テーブル間の間隔 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列配置 */
+    gap: 20px; /* テーブル間の余白 */
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* 最大幅を設定 */
+    margin: auto; /* 中央寄せ */
 }
 
-/* 各テーブルのスタイル */
+/* 各テーブルのサイズ調整 */
 .table-container table {
-    width: calc(33.33% - 10px); /* 3列均等に配置 */
-    min-width: 250px; /* 小さすぎるテーブルを防ぐ */
+    width: 100%; /* 横幅いっぱい */
+    min-width: 300px; /* 小さくなりすぎないように */
     border-collapse: collapse;
+    background-color: white;
+    table-layout: fixed; /* セルの幅を均等にする */
 }
 
-/* セルのスタイル */
+/* セルのデザイン */
 th, td {
     border: 2px solid black;
-    padding: 10px;
-    text-align: left;
+    padding: 15px; /* 余白を増やす */
+    text-align: center; /* 中央揃え */
+    font-size: 18px; /* 文字を大きく */
 }
 
-/* テーブルのヘッダーを強調 */
+/* ヘッダー */
 th {
     background-color: #30D5C8;
     color: black;
 }
 
-/* 交互に背景色を変える */
+/* 偶数行の背景 */
 tr:nth-child(even) td {
     background-color: #f9f9f9;
+}
+
+/* スマホや狭い画面では自動調整 */
+@media screen and (max-width: 1024px) {
+    .table-container {
+        grid-template-columns: repeat(2, 1fr); /* 1024px以下は2列 */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .table-container {
+        grid-template-columns: repeat(1, 1fr); /* 768px以下は1列 */
+    }
 }
