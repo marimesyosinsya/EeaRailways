@@ -56,31 +56,6 @@ footer {
     width: 100%;
 }
 
-/* ボタンのコンテナを調整 */
-.button-container {
-    display: flex; /* 横並びに配置 */
-    gap: 10px; /* ボタンの間隔 */
-    margin-top: 10px; /* h2 との間隔 */
-    justify-content: flex-start; /* 左寄せ（変更可能） */
-    flex-wrap: wrap; /* 画面幅が狭い場合に折り返す */
-}
-
-/* ボタンのデザイン */
-.toggle-button {
-    padding: 8px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    background-color: #f8f8f8;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-/* ボタンをホバー時に強調 */
-.toggle-button:hover {
-    background-color: #e0e0e0;
-}
-
 /* セクション内のテーブルを横並びにする */
 .table-container {
     display: flex; /* フレックスボックスで横並び */
