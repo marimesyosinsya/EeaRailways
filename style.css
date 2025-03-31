@@ -83,15 +83,14 @@ footer {
 
 /* セクション内のテーブルを横並びにする */
 .table-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* 均等配置 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列固定 */
     gap: 20px; /* テーブル間の間隔 */
 }
 
 /* 各テーブルのスタイル */
 .table-container table {
-    width: 48%; /* 横に2つ並ぶように調整（余白を確保） */
+    width: 100%; /* gridに合わせるため100% */
     border-collapse: collapse;
 }
 
@@ -112,4 +111,3 @@ th {
 tr:nth-child(even) td {
     background-color: #f9f9f9;
 }
-
