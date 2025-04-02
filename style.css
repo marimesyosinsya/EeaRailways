@@ -59,18 +59,19 @@ footer {
 /* テーブルを横に3列並べる */
 .table-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3列配置 */
-    gap: 20px; /* テーブル間の余白 */
+    grid-template-columns: repeat(3, minmax(350px, 1fr)); /* 最小350px、最大可変 */
+    gap: 30px; /* テーブル間の余白を増やす */
     justify-content: center;
     width: 100%;
-    max-width: 1200px; /* 最大幅を設定 */
+    max-width: 1600px; /* 最大幅を広げる */
     margin: auto; /* 中央寄せ */
 }
 
 /* 各テーブルのサイズ調整 */
 .table-container table {
-    width: 100%; /* 横幅いっぱい */
-    min-width: 300px; /* 小さくなりすぎないように */
+    width: 100%; /* 親要素の幅いっぱい */
+    min-width: 350px; /* 小さくなりすぎないように */
+    max-width: 500px; /* 大きくなりすぎないように */
     border-collapse: collapse;
     background-color: white;
     table-layout: fixed; /* セルの幅を均等にする */
@@ -79,9 +80,9 @@ footer {
 /* セルのデザイン */
 th, td {
     border: 2px solid black;
-    padding: 15px; /* 余白を増やす */
+    padding: 20px; /* 余白をさらに増やす */
     text-align: center; /* 中央揃え */
-    font-size: 18px; /* 文字を大きく */
+    font-size: 20px; /* 文字を大きく */
 }
 
 /* ヘッダー */
@@ -95,15 +96,15 @@ tr:nth-child(even) td {
     background-color: #f9f9f9;
 }
 
-/* スマホや狭い画面では自動調整 */
-@media screen and (max-width: 1024px) {
+/* 画面サイズごとの調整 */
+@media screen and (max-width: 1400px) {
     .table-container {
-        grid-template-columns: repeat(2, 1fr); /* 1024px以下は2列 */
+        grid-template-columns: repeat(2, minmax(350px, 1fr)); /* 1400px以下は2列 */
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .table-container {
-        grid-template-columns: repeat(1, 1fr); /* 768px以下は1列 */
+        grid-template-columns: repeat(1, minmax(350px, 1fr)); /* 900px以下は1列 */
     }
 }
